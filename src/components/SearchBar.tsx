@@ -6,14 +6,16 @@ const SearchBar = (): JSX.Element => {
   const [errorMessage, setErrorMessage] = useState("")
   const [search, setSearch] = useState("")
   const [disable, setDisable] = useState(false);
-  const {updateDataStore} = useGiphyStore();
+  const {updateDataStore, setPending} = useGiphyStore();
 
   const handleSubmit = async (e: React.SyntheticEvent) => {
     e.preventDefault();
     console.log("Search input", search);
 
+    setPending(true)
     const res = await searchGiphy(search);
     updateDataStore(res);
+    setPending(false)
   };
 
   const validate = (text: String) => {

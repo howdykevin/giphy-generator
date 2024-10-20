@@ -12,6 +12,8 @@ import { getTrending } from "../services/getTrending";
 type GiphyStoreContext = {
   giphyData: ImageData[];
   updateDataStore: (data: ImageData[]) => void;
+  loading: boolean;
+  setPending: (data: boolean) => void;
 };
 
 type ProviderProps = {
@@ -21,14 +23,19 @@ type ProviderProps = {
 const GiphyStore = createContext<GiphyStoreContext>({
   giphyData: [],
   updateDataStore: () => {},
+  loading: false,
+  setPending: () => {}
 });
 
 const GiphyContextProvider = ({ children }: ProviderProps) => {
   const [data, setData] = useState<ImageData[]>([]);
+  const [loading, setLoading] = useState(false);
 
   const fetchTrending = useCallback(async () => {
+    setLoading(true);
     const result = await getTrending();
     setData(result);
+    setLoading(false);
   }, []);
 
   useEffect(() => {
@@ -40,6 +47,8 @@ const GiphyContextProvider = ({ children }: ProviderProps) => {
       value={{
         giphyData: data,
         updateDataStore: setData,
+        loading,
+        setPending: setLoading
       }}
     >
       {children}
