@@ -1,50 +1,12 @@
-# React + TypeScript + Vite
+# Giphy Finder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Static web app created using React,Typescript and Tailwind CSS. The web app enables the following:
 
-Currently, two official plugins are available:
+- On first load, users will see trending GIFs
+- User is able to search for their preferred GIFs
+- Loading skeleton available when GIFs are being loaded or queried
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Live site: https://howdykevin.github.io/giphy-generator/
 
-## Expanding the ESLint configuration
+<img width="1525" alt="Screenshot 2024-10-20 at 11 24 13 PM" src="https://github.com/user-attachments/assets/710e9291-d1e7-491b-ac0b-260bab5c1cca">
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
