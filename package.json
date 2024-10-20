@@ -2,6 +2,7 @@
   "name": "giphy-generator",
   "private": true,
   "version": "0.0.0",
+  "homepage": "https://howdykevin.github.io/giphy-generator/",
   "type": "module",
   "scripts": {
     "dev": "vite",
