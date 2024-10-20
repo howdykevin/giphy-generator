@@ -4,11 +4,10 @@ import { DisplayGrid } from "./components/DisplayGrid";
 
 function App() {
   return (
-    <>
+    <div className="container mx-auto px-2 bg-gray-900">
       <SearchBar />
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
       <DisplayGrid />
-    </>
+    </div>
   );
 }
 
